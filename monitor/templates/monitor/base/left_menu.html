@@ -1,0 +1,24 @@
+{% load static %}
+<div class="sidenav-left">
+<center>
+  <a href="{% url "monitor:calendar" %}" style="border-color:transparent">
+    <img  src="{% static "monitor/img/date0.png" %}" alt="" class="img-logo">
+  </a>
+  <br><br>
+  <div class="btn-link"  id="active_button">
+    <a href="{% url "monitor:home" %}">Our Status</a>
+  </div>
+  <div class="btn-link" >
+    <a href="{% url "monitor:community" %}">Our Community</a>
+  </div>
+  <div class="btn-link">
+    <a href="{% url "monitor:actions" %}">My Actions</a>
+  </div>
+  <div class="btn-link">
+    <a href="#">My Wallet</a>
+  </div>
+  <a href="credits.html" style="border-color:transparent">
+    <span style="position:relative; top:30px;" class="glyphicon glyphicon-info-sign" ></span>
+  </a>
+</center>
+</div>

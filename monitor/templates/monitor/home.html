@@ -1,0 +1,106 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+
+{% block title %}
+<div class="main-tittle inside">Community Consumption This Month</div>
+{% endblock %}
+{% block body %}
+<div id='container' class="inside"style="width:700px;" >
+<h3 class="community-goal" style="padding-left: 505px;">Goal</h3>
+<div class="doted" style="left: {{consumption_goal}}px; top: 250px;height: 200px;" data-tooltip="Your community is on track to exceed the monthly goal."> </div>
+<div class="meter canela" style="height: 150px;"  >
+  <div class='meter-bar green' style="width: 60%;height: 150px;" data-tooltip='This month’s aggregated energy consumption for all households in the community.'>
+    <div class="txt-green first-txt" >
+      This month:
+    </div>
+    <div class="progress-green">
+      {{consumption}}
+    </div>
+    <div class="txt-green">
+      kWh
+    </div>
+  </div>
+  <div class='meter-bar gray' style="width: 20%;height: 150px;" data-tooltip='Last month’s aggregated energy consumption for the community on the current date.'>
+  </div>
+  <div data-tooltip='Your community is on track to exceed the monthly goal.' class="orange-region">
+  </div>
+</div>
+<img src="{% static "monitor/img/scale_values.png" %}" alt="" class="scale-values" style="">
+<span  style="position:relative; top:30px;" class="glyphicon glyphicon-option-horizontal glyphicon-index" onclick="displayOptions()"></span>
+<div id="sub-progress" style="">
+  <div class="selement">
+    <img src="{% static "monitor/img/heatCool.png" %}"  style="float:left">
+    <div class="doted" style="left: {{consumption_a_goal}}px; top: 515px;height: 63px;"> </div>
+    <div class="meter"  data-tooltip='Your community is on too high heating, preventing to meet the goal.'  style="margin-left:70px; width:550px; height: 60px;">
+      <div class='meter-bar red' style="width: 70%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+            {{consumption_a}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: 5%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="selement">
+    <img src="{% static "monitor/img/waterBoiler.png" %}"  style="float:left">
+    <div class="doted" style="left: {{consumption_b_goal}}px; top: 610px;height: 63px;"> </div>
+    <div class="meter"  data-tooltip='Your community is on too high heating, preventing to meet the goal.'  style="margin-left:70px; width:350px; height: 60px;">
+      <div class='meter-bar blue' style="width: 70%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+            {{consumption_b}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: 5%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selement">
+    <img src="{% static "monitor/img/lights.png" %}" style="float:left">
+    <div class="doted" style="left: {{consumption_c_goal}}px; top: 705px;height: 63px;"> </div>
+    <div class="meter"  data-tooltip='Your community is on too high heating, preventing to meet the goal.'  style="margin-left:70px; width:200px; height: 60px;">
+      <div class='meter-bar yellow' style="width: 60%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+          {{consumption_c}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: 5%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selement">
+    <img src="{% static "monitor/img/appliances.png" %}"   style="float:left">
+    <div class="doted" style="left: {{consumption_d_goal}}px; top: 800px;height: 63px;"> </div>
+    <div class="meter"  data-tooltip='Your community is on too high heating, preventing to meet the goal.'  style="margin-left:70px; width:250px; height: 60px;">
+      <div class='meter-bar navy' style="width: 30%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+          {{consumption_d}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: 5%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "monitor/css/slider.css" %}">
+ <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://rawgit.com/xdanielsb/Energy/master/base/b3/code_animated_radial%24.js" ></script>
+{% endblock %}
+
+{% block body %}
+  <div class="inside" > 
+    <div class="container" style="margin-top:5px;">
+      <center>
+        <h2 class="tittle" style="width: 701px;">Last Month's Energy Usage per Household</h2>
+        <div id="chart" style="margin-left:-400px; width: 701px;"></div>
+      </center>
+    </div>
+    <div class="range">
+      <input type="range" min="1" max="12" steps="1" value="12">
+    </div>
+    <ul class="range-labels">
+      <li>APR</li>
+      <li>MAY</li>
+      <li>JUN</li>
+      <li>JUL</li>
+      <li>AUG</li>
+      <li>SEP</li>
+      <li>OCT</li>
+      <li>NOV</li>
+      <li>DEC</li>
+      <li>JAN</li>
+      <li>FEB</li>
+      <li class="active selected">MAR</li>
+    </ul>
+    <script>
+      let data  = [
+        {name:"House1",y:300},
+        {name:"House2",y:750},
+        {name:"House3",y:800},
+        {name:"House4",y:900},
+        {name:"House5",y:1000},
+        {name:"House6",y:900},
+        {name:"House7",y:700},
+        {name:"House8",y:900},
+        {name:"House9",y:800},
+        {name:"House10",y:1000},
+      ]
+      let bh = new Radial(data)
+      let myHouse = 10
+      bh.plot("chart", myHouse, false);
+    </script>
+    <script src="{% static "monitor/js/slider.js" %}"></script>
+  </div>
+{% endblock %}
+
